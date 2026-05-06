@@ -42,7 +42,9 @@ public class UserServiceImpl implements UserService {
     public UserResponseDto loginUser(UserLoginDto dto) {
         User user = userRepository.findByEmail(dto.getEmail())
                 .orElseThrow();
-
+        System.out.println("Password from login: " + dto.getPassword());
+        System.out.println("Stored password hash: " + user.getPassword());
+        System.out.println("Is stored password BCrypt? " + user.getPassword().startsWith("$2a"));
         if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
             throw new RuntimeException("Invalid password");
         }

@@ -7,7 +7,8 @@ import lombok.Data;
 @Data
 public class AnswerRequestDto {
     private Long questionId;
+    private Long missionId;
     private String selectedAnswer;
-    private User user;
+    private Long userId;
 
 }

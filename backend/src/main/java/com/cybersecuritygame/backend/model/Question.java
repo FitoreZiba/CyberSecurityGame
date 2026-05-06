@@ -15,11 +15,13 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(columnDefinition = "TEXT")
     private  String question;
     @ElementCollection
     private List<String> options;
+    @Column(columnDefinition = "TEXT")
     private String correctAnswer;
+    @Column(columnDefinition = "TEXT")
     private String explanation;
     @Enumerated(EnumType.STRING)
     private Difficulty difficulty;
