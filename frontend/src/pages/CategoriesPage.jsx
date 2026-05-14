@@ -38,8 +38,8 @@ export default function CategoriesPage() {
         <div className="max-w-6xl mx-auto px-6 py-10 pb-20 animate-fade-in">
 
             <div className="mb-8">
-                <p className="font-mono text-xs text-cyber-secondary mb-1.5">// SELECT CHALLENGE MODULE</p>
-                <h1 className="font-display font-bold text-3xl tracking-wide">CHALLENGE CATEGORIES</h1>
+                <p className="font-mono text-cyber-green text-sm mb-2">●  SELECT CHALLENGE</p>
+                <h1 className="font-display font-bold text-3xl tracking-wide text-[color:var(--text-primary)]">CHALLENGE CATEGORIES</h1>
             </div>
 
             <div className="flex flex-col gap-5">
@@ -54,14 +54,14 @@ export default function CategoriesPage() {
                         style={{ animationDelay: `${i * 0.08}s` }}
                     >
                         {/* Icon */}
-                        <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-black/30 rounded-xl text-3xl">
+                        <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[color:var(--bg-card-mission)] rounded-xl text-3xl">
                             {cat.icon}
                         </div>
 
                         {/* Body */}
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-3 mb-2">
-                                <h2 className="font-display font-bold text-xl tracking-wide">{cat.name}</h2>
+                                <h2 className="font-display font-bold text-xl tracking-wide text-[color:var(--text-primary)]">{cat.name}</h2>
                                 <Badge variant={DIFF_BADGE[cat.diff]}>{cat.diff}</Badge>
                             </div>
                             <p className="text-cyber-secondary text-sm leading-relaxed mb-3">{cat.desc}</p>

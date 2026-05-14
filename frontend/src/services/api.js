@@ -57,3 +57,8 @@ export const leaderboardApi = {
     getTop: (token) =>
         request('/leaderboard/leaderboard', {}, token),
 }
+
+export const userApi = {
+    getMe: (userId, token) =>
+        request(`/progress/${userId}`, {}, token),
+}

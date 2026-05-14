@@ -4,8 +4,11 @@ import lombok.Data;
 
 @Data
 public class UserProgressDto {
-
-    private String categoryName;
-    private int score;
-    private boolean completed;
+    private Long userId;
+    private int  totalPoints;
+    private int  level;
+    private int  accuracy;
+    private int  completedCases;
+    private int  totalAnswered;
+    private int  totalCorrect;
 }

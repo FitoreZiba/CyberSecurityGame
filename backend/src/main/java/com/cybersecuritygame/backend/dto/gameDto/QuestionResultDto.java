@@ -9,4 +9,6 @@ public class QuestionResultDto {
     private boolean correct;
     private String correctAnswer;
     private String explanation;
+    private int     newPoints;
+    private int     newLevel;
 }

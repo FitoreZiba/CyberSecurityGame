@@ -1,5 +1,13 @@
 import { useState } from 'react'
-
+import {
+    ShieldCheck,
+    Trash2,
+    MousePointerClick,
+    RefreshCw,
+    HardDrive,
+    Smartphone,
+    Zap,
+} from 'lucide-react'
 const TOPICS = [
     {
         id: 'phishing',
@@ -464,7 +472,7 @@ export default function LearnPage() {
 
     const topic = TOPICS.find(t => t.id === selected)
 
-    // ── Topic detail view ───────────────────────────
+    //  Topic detail view
     if (topic) return (
         <div className="max-w-3xl mx-auto px-6 py-10 animate-fade-in">
 
@@ -573,7 +581,7 @@ export default function LearnPage() {
 
             <div className="mb-10">
                 <p className="font-mono text-cyber-green text-sm mb-2">● KNOWLEDGE BASE</p>
-                <h1 className="font-display font-bold text-5xl text-white mb-3">
+                <h1 className="font-display font-bold text-5xl text-[color:var(--text-primary)] mb-3">
                     📚 Learn & <span className="text-gradient-green">Level Up</span>
                 </h1>
                 <p className="font-body text-cyber-secondary text-xl max-w-2xl">
@@ -617,24 +625,97 @@ export default function LearnPage() {
 
             {/* Quick tips banner */}
             <div className="bg-cyber-panel border-2 border-cyber-amber/30 rounded-2xl p-8">
-                <h2 className="font-display font-bold text-2xl text-cyber-amber glow-amber mb-5">
-                    ⚡ Quick Cyber Safety Tips
-                </h2>
-                <div className="grid grid-cols-2 gap-4">
+
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-6">
+                    <div className="
+            w-11 h-11 rounded-xl
+            bg-cyber-amber/10
+            border border-cyber-amber/25
+            flex items-center justify-center
+        ">
+                        <Zap className="w-5 h-5 text-cyber-amber"/>
+                    </div>
+
+                    <h2 className="
+            font-display font-bold text-2xl
+            text-cyber-amber glow-amber
+        ">
+                        Quick Cyber Safety Tips
+                    </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
                     {[
-                        { tip: 'Never share your password with anyone — not even your best friend!', icon: '🔐' },
-                        { tip: 'If an email feels wrong — delete it. Trust your instincts!', icon: '🗑️' },
-                        { tip: 'Think before you click! Hover over links to see where they really go.', icon: '🖱️' },
-                        { tip: 'Keep your apps and devices updated — updates fix security holes.', icon: '🔄' },
-                        { tip: 'Back up your files regularly so hackers can\'t hold them hostage.', icon: '💾' },
-                        { tip: 'Use 2FA everywhere — it makes stolen passwords useless to hackers.', icon: '📱' },
-                    ].map(({ tip, icon }) => (
-                        <div key={tip} className="flex items-start gap-3 bg-cyber-card border border-cyber-amber/20 rounded-xl p-4">
-                            <span className="text-2xl shrink-0">{icon}</span>
-                            <p className="font-body text-white/80 text-sm leading-relaxed">{tip}</p>
+                        {
+                            tip: 'Never share your password with anyone — not even your best friend!',
+                            icon: ShieldCheck,
+                            color: 'text-cyber-green',
+                        },
+                        {
+                            tip: 'If an email feels wrong — delete it. Trust your instincts!',
+                            icon: Trash2,
+                            color: 'text-cyber-danger',
+                        },
+                        {
+                            tip: 'Think before you click! Hover over links to see where they really go.',
+                            icon: MousePointerClick,
+                            color: 'text-cyber-cyan',
+                        },
+                        {
+                            tip: 'Keep your apps and devices updated — updates fix security holes.',
+                            icon: RefreshCw,
+                            color: 'text-cyber-amber',
+                        },
+                        {
+                            tip: 'Back up your files regularly so hackers can’t hold them hostage.',
+                            icon: HardDrive,
+                            color: 'text-purple-400',
+                        },
+                        {
+                            tip: 'Use 2FA everywhere — it makes stolen passwords useless to hackers.',
+                            icon: Smartphone,
+                            color: 'text-cyber-green',
+                        },
+                    ].map(({tip, icon: Icon, color}) => (
+                        <div
+                            key={tip}
+                            className="
+                    flex items-start gap-4
+                    bg-cyber-card
+                    border border-cyber-amber/15
+                    hover:border-cyber-amber/35
+                    rounded-2xl
+                    p-5
+                    transition-all duration-200
+                    hover:-translate-y-1
+                "
+                        >
+
+                            {/* Icon */}
+                            <div className="
+                    shrink-0 w-11 h-11 rounded-xl
+                    bg-[color:var(--bg-card-mission)]
+                    border border-white/10
+                    flex items-center justify-center
+                ">
+                                <Icon className={`w-5 h-5 ${color}`}/>
+                            </div>
+
+                            {/* Text */}
+                            <p className="
+                    font-body text-sm leading-relaxed
+                    text-[color:var(--text-primary)]
+                ">
+                                {tip}
+                            </p>
+
                         </div>
                     ))}
+
                 </div>
+
             </div>
 
         </div>
