@@ -7,8 +7,10 @@ import com.cybersecuritygame.backend.model.Role;
 import com.cybersecuritygame.backend.model.User;
 import com.cybersecuritygame.backend.repository.UserRepository;
 import com.cybersecuritygame.backend.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -26,6 +28,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto registerUser(UserRegisterDto dto) {
+
+        if (userRepository.findByEmail(dto.getEmail()).isPresent()) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "An account with this email already exists"
+            );
+        }
+
         User user = new User();
         user.setEmail(dto.getEmail());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
@@ -33,20 +43,27 @@ public class UserServiceImpl implements UserService {
         user.setLevel(1);
         user.setUsername(dto.getUsername());
 
-        user=userRepository.save(user);
+        user = userRepository.save(user);
 
         return mapToDto(user);
     }
 
     @Override
     public UserResponseDto loginUser(UserLoginDto dto) {
+
         User user = userRepository.findByEmail(dto.getEmail())
-                .orElseThrow();
-        System.out.println("Password from login: " + dto.getPassword());
-        System.out.println("Stored password hash: " + user.getPassword());
-        System.out.println("Is stored password BCrypt? " + user.getPassword().startsWith("$2a"));
+                .orElseThrow(() ->
+                        new ResponseStatusException(
+                                HttpStatus.UNAUTHORIZED,
+                                "Invalid email or password"
+                        )
+                );
+
         if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid password");
+            throw new ResponseStatusException(
+                    HttpStatus.UNAUTHORIZED,
+                    "Invalid email or password"
+            );
         }
 
         return mapToDto(user);

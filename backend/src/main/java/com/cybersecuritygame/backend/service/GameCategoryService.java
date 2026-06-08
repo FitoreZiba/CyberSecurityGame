@@ -9,5 +9,7 @@ import java.util.List;
 public interface GameCategoryService {
 
     List<QuestionDto> getQuestionsByCategory(Long categoryId);
+
     QuestionResultDto submitAnswer(AnswerRequestDto request);
+
 }

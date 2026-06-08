@@ -54,20 +54,25 @@ const DIFF_STYLES = {
 }
 
 export default function Dashboard() {
-    const { user, token }        = useAuth()
-    const [progress, setProgress]     = useState(null)
+    const { user, token, updateUser } = useAuth()
+    const [progress,    setProgress]    = useState(null)
     const [loadingProg, setLoadingProg] = useState(true)
 
     useEffect(() => {
-        if (user?.id) {
-            progressApi.getProgress(user.id, token)
-                .then(setProgress)
-                .catch(() => {})
-                .finally(() => setLoadingProg(false))
-        } else {
-            setLoadingProg(false)
-        }
-    }, [user, token])
+        if (!user?.id) { setLoadingProg(false); return }
+
+        setLoadingProg(true)
+        progressApi.getProgress(user.id, token)
+            .then(data => {
+                setProgress(data)
+                if (data.totalPoints !== user.points || data.level !== user.level) {
+                    updateUser({ ...user, points: data.totalPoints, level: data.level })
+                }
+            })
+            .catch(() => {})
+            .finally(() => setLoadingProg(false))
+
+    }, [user?.id, user?.points, user?.level])
 
     const level    = user?.level  ?? 0
     const points   = user?.points ?? 0

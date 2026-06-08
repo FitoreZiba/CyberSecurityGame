@@ -43,11 +43,9 @@ public class MissionServiceImpl implements MissionService {
 
         if (progressOpt.isPresent()) {
             progress = progressOpt.get();
-            if (progress.isCompleted()) {
-                progress.setCurrentStep(1);
-                progress.setCompleted(false);
-                progressRepository.save(progress);
-            }
+            progress.setCurrentStep(1);
+            progressRepository.save(progress);
+
         } else {
             User user = userRepository.findById(userId)
                     .orElseThrow(() -> new RuntimeException("User not found: " + userId));
@@ -142,7 +140,15 @@ public class MissionServiceImpl implements MissionService {
                 .findByMissionIdAndStepOrder(missionId, nextStepOrder);
 
         if (nextStepOpt.isEmpty()) {
-            progress.setCompleted(true);
+
+            if (!progress.isCompleted()) {
+                progress.setCompleted(true);
+                System.out.println(">>> Mission COMPLETED for user="
+                        + user.getUsername() + " mission=" + missionId);
+            } else {
+                System.out.println(">>> Mission already completed previously — not counting again");
+            }
+
             progressRepository.save(progress);
 
             MissionStepDto dto = new MissionStepDto();
@@ -151,7 +157,7 @@ public class MissionServiceImpl implements MissionService {
             dto.setMissionCompleted(true);
             dto.setExplanation(explanation);
             dto.setCorrectAnswer(correctAnswer);
-            dto.setMessage("Mission complete! Outstanding work, Agent! 🎉");
+            dto.setMessage("Mission complete! Outstanding work, Agent!");
             return dto;
         }
 

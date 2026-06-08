@@ -8,6 +8,7 @@ import {
     Smartphone,
     Zap,
 } from 'lucide-react'
+
 const TOPICS = [
     {
         id: 'phishing',
@@ -56,12 +57,12 @@ Clone Phishing — A real email you received is copied exactly, but the links ar
             {
                 heading: '🛡️ How to Stay Safe',
                 content: `• Always check the full email address — not just the name shown.
-- Hover over links before clicking to see the real destination URL.
-- When in doubt, go directly to the website by typing it yourself.
-- Never enter passwords after clicking a link from an email.
-- Use two-factor authentication (2FA) so even stolen passwords aren't enough.
-- Report suspicious emails to an adult or your IT department.
-- If it feels wrong, it probably is — trust your instincts!`,
+• Hover over links before clicking to see the real destination URL.
+• When in doubt, go directly to the website by typing it yourself.
+• Never enter passwords after clicking a link from an email.
+• Use two-factor authentication (2FA) so even stolen passwords aren't enough.
+• Report suspicious emails to an adult or your IT department.
+• If it feels wrong, it probably is — trust your instincts!`,
             },
         ],
     },
@@ -178,26 +179,26 @@ Cryptojacker — Uses your computer's power to mine cryptocurrency for the attac
             {
                 heading: '⚠️ Warning Signs Your Device is Infected',
                 content: `• Your computer is suddenly very slow for no reason
-- You see lots of pop-up adverts even when not browsing
-- Programs crash or stop working randomly
-- Your internet is much slower than usual
-- Strange new programs appear that you didn't install
-- Your webcam light turns on by itself
-- Files have disappeared or been renamed
-- Your friends say they're getting weird messages from you
+• You see lots of pop-up adverts even when not browsing
+• Programs crash or stop working randomly
+• Your internet is much slower than usual
+• Strange new programs appear that you didn't install
+• Your webcam light turns on by itself
+• Files have disappeared or been renamed
+• Your friends say they're getting weird messages from you
 
 If you notice any of these signs, tell an adult or IT teacher immediately!`,
             },
             {
                 heading: '🛡️ How to Stay Protected',
                 content: `• Never download software from unofficial websites — only use trusted sources like official app stores.
-- Never open email attachments you weren't expecting, especially .exe, .zip, or .doc files.
-- Keep your operating system and apps updated — updates fix security holes.
-- Use a good antivirus program and keep it updated.
-- Don't disable your antivirus even if a website tells you to.
-- Be very suspicious of anything that offers something for free that normally costs money.
-- Never plug in a USB drive you found somewhere — it could contain malware.
-- Always back up your important files so ransomware can't destroy them.`,
+• Never open email attachments you weren't expecting, especially .exe, .zip, or .doc files.
+• Keep your operating system and apps updated — updates fix security holes.
+• Use a good antivirus program and keep it updated.
+• Don't disable your antivirus even if a website tells you to.
+• Be very suspicious of anything that offers something for free that normally costs money.
+• Never plug in a USB drive you found somewhere — it could contain malware.
+• Always back up your important files so ransomware can't destroy them.`,
             },
         ],
     },
@@ -254,12 +255,12 @@ The REAL domain is always the last part before the first forward slash. Everythi
             {
                 heading: '✅ Safe Browsing Habits',
                 content: `• Type important website addresses directly into your browser — don't click links in emails.
-- Bookmark sites you use regularly (bank, school, shopping) so you always go to the real one.
-- Before entering any password, double-check the full URL in the address bar.
-- If you're unsure, close the tab and search for the official website from a search engine.
-- Never enter payment information on a site without HTTPS (though HTTPS alone isn't enough!).
-- Use a browser with built-in phishing protection (Chrome, Firefox, and Edge all have this).
-- If a site asks for unnecessary personal information — leave immediately.`,
+• Bookmark sites you use regularly (bank, school, shopping) so you always go to the real one.
+• Before entering any password, double-check the full URL in the address bar.
+• If you're unsure, close the tab and search for the official website from a search engine.
+• Never enter payment information on a site without HTTPS (though HTTPS alone isn't enough!).
+• Use a browser with built-in phishing protection (Chrome, Firefox, and Edge all have this).
+• If a site asks for unnecessary personal information — leave immediately.`,
             },
         ],
     },
@@ -307,12 +308,12 @@ DANGEROUS 🚨
             {
                 heading: '🛡️ Staying Safe from Spam',
                 content: `• Use your email provider's spam filter — Gmail, Outlook, and others are very good at catching spam.
-- Never reply to spam — it confirms your email address is active, causing more spam.
-- Never click "unsubscribe" in suspicious emails — it can confirm your address is active.
-- Don't share your email address publicly on social media or websites.
-- Use a separate email address for signing up to websites and apps.
-- Report spam using your email app's "Report Spam" button.
-- Never forward chain messages — they spread spam and misinformation.`,
+• Never reply to spam — it confirms your email address is active, causing more spam.
+• Never click "unsubscribe" in suspicious emails — it can confirm your address is active.
+• Don't share your email address publicly on social media or websites.
+• Use a separate email address for signing up to websites and apps.
+• Report spam using your email app's "Report Spam" button.
+• Never forward chain messages — they spread spam and misinformation.`,
             },
         ],
     },
@@ -436,15 +437,10 @@ DEVICES ✅
                 content: `If you think you have been hacked, scammed, or targeted online:
 
 1. DON'T PANIC — It happens to adults too. You're not in trouble for being tricked.
-
 2. TELL AN ADULT — A parent, teacher, or trusted adult can help you report it and fix it.
-
 3. CHANGE YOUR PASSWORDS — Especially for email and any account that might be affected.
-
 4. CHECK YOUR ACCOUNTS — Look for anything strange like purchases you didn't make.
-
 5. REPORT IT — In the UK, report to Action Fraud. In the US, report to the FTC at reportfraud.ftc.gov.
-
 6. LEARN FROM IT — Every experience makes you a better cyber detective!`,
             },
         ],
@@ -452,18 +448,18 @@ DEVICES ✅
 ]
 
 const DIFF_STYLES = {
-    BEGINNER:     'bg-cyber-green/20  text-cyber-green  border-cyber-green/40',
-    INTERMEDIATE: 'bg-cyber-amber/20  text-cyber-amber  border-cyber-amber/40',
-    ADVANCED:     'bg-cyber-danger/20 text-cyber-danger border-cyber-danger/40',
+    BEGINNER: 'bg-cyber-green/20 text-cyber-green border-cyber-green/40',
+    INTERMEDIATE: 'bg-cyber-amber/20 text-cyber-amber border-cyber-amber/40',
+    ADVANCED: 'bg-cyber-danger/20 text-cyber-danger border-cyber-danger/40',
 }
 
 const COLOR_BTN = {
-    amber:  'bg-cyber-amber  text-cyber-bg hover:shadow-[0_0_20px_rgba(255,215,64,0.5)]',
-    green:  'bg-cyber-green  text-cyber-bg hover:shadow-[0_0_20px_rgba(0,230,118,0.5)]',
-    cyan:   'bg-cyber-cyan   text-cyber-bg hover:shadow-[0_0_20px_rgba(24,255,255,0.5)]',
-    purple: 'bg-cyber-purple text-white    hover:shadow-[0_0_20px_rgba(224,64,251,0.5)]',
-    pink:   'bg-cyber-pink   text-white    hover:shadow-[0_0_20px_rgba(255,64,129,0.5)]',
-    blue:   'bg-cyber-blue   text-white    hover:shadow-[0_0_20px_rgba(68,138,255,0.5)]',
+    amber: 'bg-cyber-amber text-cyber-bg hover:shadow-[0_0_20px_rgba(255,215,64,0.5)]',
+    green: 'bg-cyber-green text-cyber-bg hover:shadow-[0_0_20px_rgba(0,230,118,0.5)]',
+    cyan: 'bg-cyber-cyan text-cyber-bg hover:shadow-[0_0_20px_rgba(24,255,255,0.5)]',
+    purple: 'bg-cyber-purple text-white hover:shadow-[0_0_20px_rgba(224,64,251,0.5)]',
+    pink: 'bg-cyber-pink text-white hover:shadow-[0_0_20px_rgba(255,64,129,0.5)]',
+    blue: 'bg-cyber-blue text-white hover:shadow-[0_0_20px_rgba(68,138,255,0.5)]',
 }
 
 export default function LearnPage() {
@@ -472,14 +468,17 @@ export default function LearnPage() {
 
     const topic = TOPICS.find(t => t.id === selected)
 
-    //  Topic detail view
+    // Topic detail view
     if (topic) return (
         <div className="max-w-3xl mx-auto px-6 py-10 animate-fade-in">
-
             {/* Back button */}
             <button
                 onClick={() => { setSelected(null); setOpenSection(null) }}
-                className="flex items-center gap-2 font-display font-bold text-sm tracking-widest uppercase text-cyber-secondary border-2 border-cyber-muted/30 rounded-xl px-4 py-2 hover:text-white hover:border-cyber-secondary transition-all mb-8"
+                className="flex items-center gap-2 font-display font-bold text-sm tracking-widest uppercase rounded-xl px-4 py-2 transition-all mb-8"
+                style={{
+                    color: 'var(--text-secondary)',
+                    border: '2px solid var(--border-dim)'
+                }}
             >
                 ← BACK TO TOPICS
             </button>
@@ -490,15 +489,17 @@ export default function LearnPage() {
                     <div className="text-6xl animate-float shrink-0">{topic.icon}</div>
                     <div>
                         <div className="flex items-center gap-3 mb-2">
-              <span className={`font-mono text-xs px-3 py-1 rounded-lg border-2 ${DIFF_STYLES[topic.difficulty]}`}>
-                {topic.difficulty}
-              </span>
-                            <span className="font-mono text-xs text-cyber-muted">📖 {topic.readTime}</span>
+                            <span className={`font-mono text-xs px-3 py-1 rounded-lg border-2 ${DIFF_STYLES[topic.difficulty]}`}>
+                                {topic.difficulty}
+                            </span>
+                            <span className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>
+                                📖 {topic.readTime}
+                            </span>
                         </div>
                         <h1 className={`font-display font-bold text-4xl ${topic.accent} ${topic.glow} mb-3`}>
                             {topic.title}
                         </h1>
-                        <p className="font-body text-cyber-secondary text-lg leading-relaxed">
+                        <p className="font-body text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                             {topic.summary}
                         </p>
                     </div>
@@ -510,18 +511,25 @@ export default function LearnPage() {
                 {topic.sections.map((section, i) => (
                     <div
                         key={i}
-                        className={`bg-cyber-card border-2 rounded-2xl overflow-hidden transition-all duration-300
-              ${openSection === i ? topic.border : 'border-white/10 hover:border-white/25'}`}
+                        className={`rounded-2xl overflow-hidden transition-all duration-300 border-2 ${
+                            openSection === i ? topic.border : ''
+                        }`}
+                        style={{
+                            backgroundColor: 'var(--bg-card)',
+                            borderColor: openSection === i ? undefined : 'var(--border-dim)'
+                        }}
                     >
                         {/* Section header */}
                         <button
                             onClick={() => setOpenSection(openSection === i ? null : i)}
                             className="w-full flex items-center justify-between px-6 py-5 text-left"
                         >
-                            <h2 className="font-display font-bold text-xl text-white">{section.heading}</h2>
+                            <h2 className="font-display font-bold text-xl" style={{ color: 'var(--text-primary)' }}>
+                                {section.heading}
+                            </h2>
                             <span className={`text-2xl transition-transform duration-300 ${openSection === i ? 'rotate-180' : ''} ${topic.accent}`}>
-                ▾
-              </span>
+                                ▾
+                            </span>
                         </button>
 
                         {/* Section content */}
@@ -534,19 +542,19 @@ export default function LearnPage() {
                                     ) : line.startsWith('•') ? (
                                         <div key={j} className="flex items-start gap-3 mb-2">
                                             <span className={`${topic.accent} mt-0.5 shrink-0`}>●</span>
-                                            <p className="font-body text-white/85 text-base leading-relaxed">
+                                            <p className="font-body text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                                                 {line.replace('•', '').trim()}
                                             </p>
                                         </div>
                                     ) : line.startsWith('□') ? (
                                         <div key={j} className="flex items-start gap-3 mb-2">
-                                            <span className="text-cyber-muted mt-0.5 shrink-0">☐</span>
-                                            <p className="font-body text-white/85 text-base leading-relaxed">
+                                            <span style={{ color: 'var(--text-muted)' }} className="mt-0.5 shrink-0">☐</span>
+                                            <p className="font-body text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                                                 {line.replace('□', '').trim()}
                                             </p>
                                         </div>
                                     ) : (
-                                        <p key={j} className="font-body text-white/85 text-base leading-relaxed mb-2">
+                                        <p key={j} className="font-body text-base leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
                                             {line}
                                         </p>
                                     )
@@ -559,10 +567,10 @@ export default function LearnPage() {
 
             {/* Bottom CTA */}
             <div className={`mt-8 ${topic.bg} border-2 ${topic.border} rounded-2xl p-6 text-center`}>
-                <p className="font-display font-bold text-lg text-white mb-2">
+                <p className="font-display font-bold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>
                     Ready to test your knowledge? 🎮
                 </p>
-                <p className="font-body text-cyber-secondary text-sm mb-5">
+                <p className="font-body text-sm mb-5" style={{ color: 'var(--text-secondary)' }}>
                     Now that you have read about {topic.title.toLowerCase()}, try the related challenge!
                 </p>
                 <button
@@ -578,42 +586,45 @@ export default function LearnPage() {
     // ── Topic grid ──────────────────────────────────
     return (
         <div className="max-w-7xl mx-auto px-6 py-10 animate-fade-in">
-
             <div className="mb-10">
                 <p className="font-mono text-cyber-green text-sm mb-2">● KNOWLEDGE BASE</p>
-                <h1 className="font-display font-bold text-5xl text-[color:var(--text-primary)] mb-3">
+                <h1 className="font-display font-bold text-5xl mb-3" style={{ color: 'var(--text-primary)' }}>
                     📚 Learn & <span className="text-gradient-green">Level Up</span>
                 </h1>
-                <p className="font-body text-cyber-secondary text-xl max-w-2xl">
+                <p className="font-body text-xl max-w-2xl" style={{ color: 'var(--text-secondary)' }}>
                     Before you play the challenges, read up on the topics! The more you know, the better agent you become. 🕵️
                 </p>
             </div>
 
             {/* Topic grid */}
-            <div className="grid grid-cols-3 gap-5 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
                 {TOPICS.map((topic, i) => (
                     <button
                         key={topic.id}
                         onClick={() => { setSelected(topic.id); setOpenSection(0) }}
                         className={`
-              text-left bg-cyber-card border-2 ${topic.border}/50
-              hover:${topic.border} rounded-2xl p-6
-              hover:scale-105 transition-all duration-200 animate-fade-in
-              group
-            `}
-                        style={{ animationDelay: `${i * 0.08}s` }}
+                            text-left border-2 ${topic.border}/50
+                            hover:${topic.border} rounded-2xl p-6
+                            hover:scale-105 transition-all duration-200 animate-fade-in
+                            group
+                        `}
+                        style={{
+                            animationDelay: `${i * 0.08}s`,
+                            backgroundColor: 'var(--bg-card)',
+                            borderColor: 'var(--border-dim)'
+                        }}
                     >
                         <div className="text-5xl mb-4 group-hover:animate-float">{topic.icon}</div>
                         <div className="flex items-center gap-2 mb-3">
-              <span className={`font-mono text-xs px-2 py-0.5 rounded-lg border ${DIFF_STYLES[topic.difficulty]}`}>
-                {topic.difficulty}
-              </span>
-                            <span className="font-mono text-xs text-cyber-muted">{topic.readTime}</span>
+                            <span className={`font-mono text-xs px-2 py-0.5 rounded-lg border ${DIFF_STYLES[topic.difficulty]}`}>
+                                {topic.difficulty}
+                            </span>
+                            <span className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>{topic.readTime}</span>
                         </div>
                         <h2 className={`font-display font-bold text-xl ${topic.accent} mb-2`}>
                             {topic.title}
                         </h2>
-                        <p className="font-body text-cyber-secondary text-sm leading-relaxed">
+                        <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                             {topic.summary}
                         </p>
                         <div className={`mt-4 font-display font-bold text-sm ${topic.accent} flex items-center gap-2`}>
@@ -624,29 +635,18 @@ export default function LearnPage() {
             </div>
 
             {/* Quick tips banner */}
-            <div className="bg-cyber-panel border-2 border-cyber-amber/30 rounded-2xl p-8">
-
+            <div className="border-2 border-cyber-amber/30 rounded-2xl p-8" style={{ backgroundColor: 'var(--bg-panel)' }}>
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-6">
-                    <div className="
-            w-11 h-11 rounded-xl
-            bg-cyber-amber/10
-            border border-cyber-amber/25
-            flex items-center justify-center
-        ">
+                    <div className="w-11 h-11 rounded-xl bg-cyber-amber/10 border border-cyber-amber/25 flex items-center justify-center">
                         <Zap className="w-5 h-5 text-cyber-amber"/>
                     </div>
-
-                    <h2 className="
-            font-display font-bold text-2xl
-            text-cyber-amber glow-amber
-        ">
+                    <h2 className="font-display font-bold text-2xl text-cyber-amber glow-amber">
                         Quick Cyber Safety Tips
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
                     {[
                         {
                             tip: 'Never share your password with anyone — not even your best friend!',
@@ -681,43 +681,25 @@ export default function LearnPage() {
                     ].map(({tip, icon: Icon, color}) => (
                         <div
                             key={tip}
-                            className="
-                    flex items-start gap-4
-                    bg-cyber-card
-                    border border-cyber-amber/15
-                    hover:border-cyber-amber/35
-                    rounded-2xl
-                    p-5
-                    transition-all duration-200
-                    hover:-translate-y-1
-                "
+                            className="flex items-start gap-4 border rounded-2xl p-5 transition-all duration-200 hover:-translate-y-1"
+                            style={{
+                                backgroundColor: 'var(--bg-card)',
+                                borderColor: 'var(--border-dim)'
+                            }}
                         >
-
                             {/* Icon */}
-                            <div className="
-                    shrink-0 w-11 h-11 rounded-xl
-                    bg-[color:var(--bg-card-mission)]
-                    border border-white/10
-                    flex items-center justify-center
-                ">
+                            <div className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center" style={{ backgroundColor: 'var(--bg-card-mission)' }}>
                                 <Icon className={`w-5 h-5 ${color}`}/>
                             </div>
 
                             {/* Text */}
-                            <p className="
-                    font-body text-sm leading-relaxed
-                    text-[color:var(--text-primary)]
-                ">
+                            <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                                 {tip}
                             </p>
-
                         </div>
                     ))}
-
                 </div>
-
             </div>
-
         </div>
     )
 }

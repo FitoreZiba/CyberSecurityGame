@@ -54,7 +54,7 @@ export default function CategoriesPage() {
                         style={{ animationDelay: `${i * 0.08}s` }}
                     >
                         {/* Icon */}
-                        <div className="w-16 h-16 shrink-0 flex items-center justify-center bg-[color:var(--bg-card-mission)] rounded-xl text-3xl">
+                        <div className="text-[color:var(--text-primary)] w-16 h-16 shrink-0 flex items-center justify-center bg-[color:var(--bg-card-mission)] rounded-xl text-3xl">
                             {cat.icon}
                         </div>
 
@@ -67,7 +67,7 @@ export default function CategoriesPage() {
                             <p className="text-cyber-secondary text-sm leading-relaxed mb-3">{cat.desc}</p>
                             <div className="flex gap-2 flex-wrap">
                                 {cat.skills.map(s => (
-                                    <span key={s} className="font-mono text-[10px] text-cyber-muted border border-cyber-muted/30 rounded px-2 py-0.5">
+                                    <span key={s} className="font-mono text-[10px] text-[color:var(--text-primary)] border border-cyber-muted/30 rounded px-2 py-0.5">
                     {s}
                   </span>
                                 ))}

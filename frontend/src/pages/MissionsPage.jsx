@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
-import { missionApi } from '../services/api'
+import { missionApi, progressApi } from '../services/api'
 
 const MISSIONS = [
     {
@@ -212,9 +212,19 @@ export default function MissionsPage() {
                 const newLevel   = Math.min(Math.floor(newPoints / 100), 4)
                 const didLevelUp = newLevel > (user?.level ?? 0)
                 updateUser({ ...user, points: newPoints, level: newLevel })
+
                 if (didLevelUp) {
                     setLevelUp(true)
                     setTimeout(() => setLevelUp(false), 3000)
+                }
+
+                if (isMissionDone(res)) {
+                    progressApi.getProgress(user.id, token)
+                        .then(data => {
+                            updateUser({ ...user, points: data.totalPoints, level: data.level })
+                            console.log('>>> Cases solved after mission:', data.completedCases)
+                        })
+                        .catch(() => {})
                 }
             }
         } catch (e) {

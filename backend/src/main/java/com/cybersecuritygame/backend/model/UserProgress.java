@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -13,11 +12,15 @@ public class UserProgress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
     private User user;
+
     @ManyToOne
     private GameCategory category;
-    private int score;
-    private boolean completed;
 
+    private int score;
+    private int totalAnswered;
+    private int totalCorrect;
+    private boolean completed;
 }

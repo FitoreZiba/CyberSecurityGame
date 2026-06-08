@@ -31,13 +31,7 @@ public class GameCategoryServiceImpl implements GameCategoryService {
         this.userProgressRepository = userProgressRepository;
     }
 
-    @Override
-    public List<QuestionDto> getQuestionsByCategory(Long categoryId) {
-        return questionRepository.findByCategoryId(categoryId)
-                .stream()
-                .map(this::mapToDto)
-                .toList();
-    }
+
 
     @Override
     public QuestionResultDto submitAnswer(AnswerRequestDto request) {
@@ -73,6 +67,7 @@ public class GameCategoryServiceImpl implements GameCategoryService {
     }
 
     private void updateUserProgress(User user, GameCategory category, boolean correct) {
+
         Optional<UserProgress> existing = userProgressRepository
                 .findByUserAndCategory(user, category);
 
@@ -84,11 +79,22 @@ public class GameCategoryServiceImpl implements GameCategoryService {
             progress.setUser(user);
             progress.setCategory(category);
             progress.setScore(0);
+            progress.setTotalAnswered(0);
+            progress.setTotalCorrect(0);
             progress.setCompleted(false);
         }
 
+        progress.setTotalAnswered(progress.getTotalAnswered() + 1);
+
         if (correct) {
             progress.setScore(progress.getScore() + 10);
+            progress.setTotalCorrect(progress.getTotalCorrect() + 1);
+        }
+
+        if (progress.getTotalCorrect() >= 5 && !progress.isCompleted()) {
+            progress.setCompleted(true);
+            System.out.println(">>> Category completed: " + category.getName()
+                    + " for user: " + user.getUsername());
         }
 
         userProgressRepository.save(progress);
@@ -112,5 +118,14 @@ public class GameCategoryServiceImpl implements GameCategoryService {
         dto.setNewPoints(newPoints);
         dto.setNewLevel(newLevel);
         return dto;
+    }
+
+
+    @Override
+    public List<QuestionDto> getQuestionsByCategory(Long categoryId) {
+        return questionRepository.findRandomByCategoryId(categoryId, 6)
+                .stream()
+                .map(this::mapToDto)
+                .toList();
     }
 }

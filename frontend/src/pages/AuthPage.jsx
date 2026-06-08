@@ -16,7 +16,7 @@ export default function AuthPage() {
     const { login } = useAuth()
     const navigate  = useNavigate()
 
-    // Generate floating background particles
+
     useEffect(() => {
         setParticles(
             Array.from({ length: 12 }, (_, i) => ({
@@ -44,8 +44,12 @@ export default function AuthPage() {
             login(res, res.token ?? res.jwt ?? res.accessToken ?? '')
             navigate('/dashboard')
         } catch (err) {
-            setError(err.message || 'Something went wrong — try again!')
-        } finally {
+            setError(
+                err.response?.data?.message ||
+                'Something went wrong — try again!'
+            )
+        }
+         finally {
             setLoading(false)
         }
     }
@@ -106,9 +110,7 @@ export default function AuthPage() {
                             <span style={{ color: 'var(--text-primary)' }}>CYBER</span>
                             <span className="text-gradient-green glow-green"> DETECTIVE</span>
                         </h1>
-                        <p className="font-mono text-sm" style={{ color: 'var(--text-secondary)' }}>
-                            {mode === 'login' ? '// AGENT AUTHENTICATION REQUIRED' : '// INITIALIZE NEW AGENT PROFILE'}
-                        </p>
+
                     </div>
 
                     {/* Mode tabs */}
@@ -129,7 +131,7 @@ export default function AuthPage() {
                                     boxShadow: mode === m ? '0 0 16px rgba(0,230,118,0.4)' : 'none',
                                 }}
                             >
-                                {m === 'login' ? '🔑 Login' : '🚀 Register'}
+                                {m === 'login' ? 'Login' : 'Register'}
                             </button>
                         ))}
                     </div>
@@ -165,7 +167,7 @@ export default function AuthPage() {
                             </label>
                             <input
                                 type="email" name="email" required
-                                placeholder="agent@cyberunit.io"
+                                placeholder="agent@cyberunit.com"
                                 value={form.email} onChange={handle}
                                 className="rounded-xl px-4 py-3.5 font-body text-base outline-none transition-all duration-200"
                                 style={{

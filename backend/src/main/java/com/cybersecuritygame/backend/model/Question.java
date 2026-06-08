@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -18,7 +19,7 @@ public class Question {
     @Column(columnDefinition = "TEXT")
     private  String question;
     @ElementCollection
-    private List<String> options;
+    private Set<String> options;
     @Column(columnDefinition = "TEXT")
     private String correctAnswer;
     @Column(columnDefinition = "TEXT")

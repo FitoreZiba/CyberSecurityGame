@@ -1,11 +1,11 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { gameApi } from '../services/api'
 import {
     CheckCircle, XCircle, ChevronRight,
     RefreshCw, Trophy, Zap, Target, Shield, Swords
 } from 'lucide-react'
+import { gameApi, progressApi } from '../services/api'
 
 const CATEGORY_META = {
     1: { name: 'Spot the Phishing',  icon: '✉️', color: '#ffd740', glow: 'rgba(255,215,64,0.4)'  },
@@ -55,6 +55,7 @@ export default function GamePage() {
 
     const q = questions[current]
 
+
     const submit = useCallback(async (option) => {
         if (selected || submitting) return
         setSelected(option)
@@ -70,8 +71,6 @@ export default function GamePage() {
                 setMsg(CORRECT_MSGS[Math.floor(Math.random() * CORRECT_MSGS.length)])
                 setShowPoints(true)
                 setTimeout(() => setShowPoints(false), 1500)
-
-                // ── Sync points AND level from backend response ──
                 updateUser({
                     ...user,
                     points: res.newPoints ?? (user?.points ?? 0) + 10,
@@ -88,7 +87,18 @@ export default function GamePage() {
     }, [selected, submitting, q, user, token, updateUser])
 
     const next = () => {
-        if (current + 1 >= questions.length) { setFinished(true); return }
+        if (current + 1 >= questions.length) {
+            setFinished(true)
+
+            if (user?.id) {
+                progressApi.getProgress(user.id, token)
+                    .then(data => {
+                        updateUser({ ...user, points: data.totalPoints, level: data.level })
+                    })
+                    .catch(() => {})
+            }
+            return
+        }
         setCurrent(c => c + 1)
         setSelected(null)
         setResult(null)
