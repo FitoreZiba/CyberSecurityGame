@@ -1,46 +1,45 @@
 services:
   postgres:
-      image: postgres:16
-      container_name: cybersecurity-db
-      environment:
-        POSTGRES_DB: cyberDetective
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
+    image: postgres:16
+    container_name: cybersecurity-db
+    environment:
+      POSTGRES_DB: cyberDetective
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
-        - "5432:5432"
+      - "5432:5432"
     volumes:
-        - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     networks:
-        - cybersecurity-network
+      - cybersecurity-network
 
-backend:
+  backend:
     build: ./backend
     container_name: cybersecurity-backend
     ports:
       - "8080:8080"
     environment:
-        SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cyberDetective
-        SPRING_DATASOURCE_USERNAME: postgres
-        SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cyberDetective
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
     depends_on:
       - postgres
     networks:
       - cybersecurity-network
-                                    
-frontend:
+
+  frontend:
     build: ./frontend
     container_name: cybersecurity-frontend
     ports:
-         - "80:80"
+      - "80:80"
     depends_on:
-        - backend
+      - backend
     networks:
-        - cybersecurity-network
-                                                                    
+      - cybersecurity-network
+
 volumes:
-    postgres_data:
-    
+  postgres_data:
 
 networks:
-    cybersecurity-network:
-        driver: bridge
+  cybersecurity-network:
+    driver: bridge
