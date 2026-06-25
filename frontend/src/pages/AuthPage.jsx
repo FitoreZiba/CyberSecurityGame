@@ -46,7 +46,7 @@ export default function AuthPage() {
         } catch (err) {
             setError(
                 err.response?.data?.message ||
-                'Something went wrong — try again!'
+                'Something went wrong - try again!'
             )
         }
          finally {
