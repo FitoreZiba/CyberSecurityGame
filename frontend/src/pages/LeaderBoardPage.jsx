@@ -17,7 +17,6 @@ export default function LeaderboardPage() {
             .finally(() => setLoading(false))
     }, [token])
 
-    // Find current user's rank
     const myRank = leaders.findIndex(l => l.id === user?.id) + 1
 
     const MEDAL_COLORS = [

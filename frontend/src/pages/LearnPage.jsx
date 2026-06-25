@@ -468,7 +468,6 @@ export default function LearnPage() {
 
     const topic = TOPICS.find(t => t.id === selected)
 
-    // Topic detail view
     if (topic) return (
         <div className="max-w-3xl mx-auto px-6 py-10 animate-fade-in">
             {/* Back button */}
@@ -583,7 +582,6 @@ export default function LearnPage() {
         </div>
     )
 
-    // ── Topic grid ──────────────────────────────────
     return (
         <div className="max-w-7xl mx-auto px-6 py-10 animate-fade-in">
             <div className="mb-10">
