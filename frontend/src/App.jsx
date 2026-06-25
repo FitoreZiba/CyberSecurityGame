@@ -9,7 +9,7 @@ import Dashboard       from './pages/Dashboard'
 import CategoriesPage  from './pages/CategoriesPage'
 import GamePage        from './pages/GamePage'
 import MissionsPage    from './pages/MissionsPage'
-import LeaderboardPage from './pages/LeaderboardPage'
+import LeaderBoardPage from './pages/LeaderBoardPage'
 import ProfilePage     from './pages/ProfilePage'
 import LearnPage       from './pages/LearnPage'
 
@@ -35,7 +35,7 @@ export default function App() {
                         <Route path="/categories"  element={<ProtectedRoute><Layout><CategoriesPage /></Layout></ProtectedRoute>} />
                         <Route path="/game/:id"    element={<ProtectedRoute><Layout><GamePage /></Layout></ProtectedRoute>} />
                         <Route path="/missions"    element={<ProtectedRoute><Layout><MissionsPage /></Layout></ProtectedRoute>} />
-                        <Route path="/leaderboard" element={<ProtectedRoute><Layout><LeaderboardPage /></Layout></ProtectedRoute>} />
+                        <Route path="/leaderboard" element={<ProtectedRoute><Layout><LeaderBoardPage /></Layout></ProtectedRoute>} />
                         <Route path="/profile"     element={<ProtectedRoute><Layout><ProfilePage /></Layout></ProtectedRoute>} />
 
                         <Route path="*" element={<Navigate to="/dashboard" replace />} />

@@ -4,7 +4,7 @@ import { leaderboardApi } from '../services/api'
 import { getLevelLabel, getLevelColor } from '../utils/levelUtils'
 import { Trophy, Medal, Star, TrendingUp, Users } from 'lucide-react'
 
-export default function LeaderboardPage() {
+export default function LeaderBoardPage() {
     const { user, token }   = useAuth()
     const [leaders, setLeaders] = useState([])
     const [loading, setLoading] = useState(true)
